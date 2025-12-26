@@ -4,15 +4,18 @@
 <meta charset="UTF-8">
 <title>Shipeast 3D – Zakázkový 3D tisk</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
 <header class="hero">
-    <h1>Shipeast 3D</h1>
-    <p>Zakázkový 3D tisk · rychlá výroba dílů na míru</p>
-    <a href="#calc" class="cta">Spočítat cenu</a>
+    <div class="hero-content">
+        <h1>Shipeast 3D</h1>
+        <p>Zakázkový 3D tisk na míru</p>
+        <a href="#calc" class="cta">Spočítat cenu</a>
+    </div>
 </header>
 
 <nav class="menu">
@@ -24,29 +27,29 @@
 <section class="section" id="services">
     <h2>Služby</h2>
     <ul class="grid">
-        <li>Zakázkový 3D tisk dle modelu</li>
+        <li>Zakázkový 3D tisk</li>
         <li>Malosériová výroba</li>
         <li>Technické i hobby díly</li>
-        <li>Rychlá kalkulace ceny</li>
     </ul>
 </section>
 
 <section class="section card" id="calc">
     <h2>Kalkulačka ceny</h2>
 
-    <label>Materiál</label>
+    <label for="material">Materiál</label>
     <select id="material">
         <option value="pla">PLA · 350 Kč/kg</option>
         <option value="petg">PETG · 390 Kč/kg</option>
     </select>
 
-    <label>Spotřeba filamentu (g)</label>
-    <input type="range" id="grams" min="10" max="2000" step="1" value="100">
-    <span id="gramsValue">100 g</span>
+    <label for="grams">Spotřeba filamentu (g)</label>
+    <input type="number" id="grams" min="1" step="0.1" placeholder="g">
 
-    <label>Doba tisku</label>
-    <input type="range" id="timeRange" min="0.5" max="24" step="0.1" value="2">
-    <span id="timeValue">2 hod</span>
+    <label for="hours">Doba tisku</label>
+    <div class="time-row">
+        <input type="number" id="hours" min="0" placeholder="Hodiny">
+        <input type="number" id="minutes" min="0" max="59" placeholder="Minuty">
+    </div>
 
     <label class="switch">
         <input type="checkbox" id="dph">
@@ -60,19 +63,19 @@
 </section>
 
 <section class="section" id="contact">
-    <h2>Poptávka / Kontakt</h2>
+    <h2>Kontakt / Poptávka</h2>
     <form class="contact" id="contactForm">
         <input type="text" placeholder="Jméno" required>
         <input type="email" placeholder="Email" required>
         <textarea placeholder="Popis zakázky / odkaz na model" required></textarea>
-        <input type="file" accept=".stl,.obj">
+        <div class="dropzone" id="dropzone">Přetáhni STL/OBJ sem nebo klikni</div>
         <input type="hidden" id="calculatedPrice">
         <button type="submit">Odeslat poptávku</button>
     </form>
 
     <div class="contact-info">
-        <p>Email: stepanekfilip202@icloud.com</p>
-        <p>Telefon: +420 771 123 104</p>
+        <p>Email: info@shipeast3d.cz</p>
+        <p>Tel: +420 123 456 789</p>
     </div>
 </section>
 
@@ -81,5 +84,6 @@
 </footer>
 
 <script src="calculator.js"></script>
+<script src="dropzone.js"></script>
 </body>
 </html>
