@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Shipeast 3D – Zakázkový 3D tisk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header class="hero">
+    <h1>Shipeast 3D</h1>
+    <p>Zakázkový 3D tisk · rychlá výroba dílů na míru</p>
+    <a href="#calc" class="cta">Spočítat cenu</a>
+</header>
+
+<nav class="menu">
+    <a href="#services">Služby</a>
+    <a href="#calc">Kalkulačka</a>
+    <a href="#contact">Kontakt</a>
+</nav>
+
+<section class="section" id="services">
+    <h2>Služby</h2>
+    <ul class="grid">
+        <li>Zakázkový 3D tisk dle modelu</li>
+        <li>Malosériová výroba</li>
+        <li>Technické i hobby díly</li>
+        <li>Rychlá kalkulace ceny</li>
+    </ul>
+</section>
+
+<section class="section card" id="calc">
+    <h2>Kalkulačka ceny</h2>
+
+    <label>Materiál</label>
+    <select id="material">
+        <option value="pla">PLA · 350 Kč/kg</option>
+        <option value="petg">PETG · 390 Kč/kg</option>
+    </select>
+
+    <label>Spotřeba filamentu (g)</label>
+    <input type="range" id="grams" min="10" max="2000" step="1" value="100">
+    <span id="gramsValue">100 g</span>
+
+    <label>Doba tisku</label>
+    <input type="range" id="timeRange" min="0.5" max="24" step="0.1" value="2">
+    <span id="timeValue">2 hod</span>
+
+    <label class="switch">
+        <input type="checkbox" id="dph">
+        <span class="slider"></span>
+        DPH 21 %
+    </label>
+
+    <div class="result" id="output">
+        <p>Vyplň hodnoty pro výpočet ceny.</p>
+    </div>
+</section>
+
+<section class="section" id="contact">
+    <h2>Poptávka / Kontakt</h2>
+    <form class="contact" id="contactForm">
+        <input type="text" placeholder="Jméno" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Popis zakázky / odkaz na model" required></textarea>
+        <input type="file" accept=".stl,.obj">
+        <input type="hidden" id="calculatedPrice">
+        <button type="submit">Odeslat poptávku</button>
+    </form>
+
+    <div class="contact-info">
+        <p>Email: info@shipeast3d.cz</p>
+        <p>Telefon: +420 123 456 789</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Shipeast 3D</p>
+</footer>
+
+<script src="calculator.js"></script>
+</body>
+</html>
